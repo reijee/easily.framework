@@ -1,3 +1,5 @@
+/src/.vs
+/.github
 /src/easily.framework.core/obj
 /src/easily.framework.webapi/bin
 /src/easily.framework.webapi/Logs

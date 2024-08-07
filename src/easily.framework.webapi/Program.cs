@@ -31,6 +31,9 @@ namespace easily.framework.webapi
                 Log.Information("WebHost Starting...");
                 var builder = WebApplication.CreateBuilder(args);
 
+                // 使用Serilog日志记录器
+                builder.Host.UseSerilog();
+
                 // Add services to the container.
                 builder.Services.AddControllers();
                 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
