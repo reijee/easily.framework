@@ -1,5 +1,5 @@
 ﻿using easily.framework.core.Bootstrappers;
-using easily.framework.core.Serilog;
+using easily.framework.core.Loggers;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;

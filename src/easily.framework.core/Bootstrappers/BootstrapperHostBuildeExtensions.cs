@@ -1,11 +1,9 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using easily.framework.core.Reflections;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace easily.framework.core.Bootstrappers
 {
@@ -21,17 +19,25 @@ namespace easily.framework.core.Bootstrappers
         /// <returns></returns>
         public static IHostBuilder AddBootstrapper(this IHostBuilder hostBuilder)
         {
-            // 查询所有类型
-            List<IBootstrapper?> types = AppDomain.CurrentDomain.GetAssemblies()
+            // 创建 IAssemblyFinder
+            IAssemblyFinder assemblyFinder = new AppDomainAssemblyFinder();
+            hostBuilder.ConfigureServices((context, services) =>
+            {
+                services.TryAddSingleton<IAssemblyFinder>(assemblyFinder);
+            });
+
+            // 查询所有启动器
+            var assemblies = assemblyFinder.Find(AssemblyFinderOption.DefaultOption);
+            List<IBootstrapper?> bootstrappers = assemblies
                 .SelectMany(x => x.GetTypes())
-                .Where(t => t.IsAssignableFrom(typeof(IBootstrapper)) && t.IsClass && !t.IsAbstract)
+                .Where(t => typeof(IBootstrapper).IsAssignableFrom(t) && t.IsClass && !t.IsAbstract)
                 .Select(t=> Activator.CreateInstance(t) as IBootstrapper)
                 .Where(t=> t != null && t.Enabled == true).OrderBy(t=>t.SortNum).ToList();
 
             // 遍历启动器
             var actions = new List<Action>();
-            var context = new BootstrapperContext(hostBuilder);
-            types.ForEach(instance => {
+            var context = new BootstrapperContext(hostBuilder, assemblyFinder);
+            bootstrappers.ForEach(instance => {
                 actions.Add(instance?.Register(context));
             });
 

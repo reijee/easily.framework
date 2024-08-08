@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using easily.framework.core.Reflections;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,14 @@ namespace easily.framework.core.Bootstrappers
     /// </summary>
     public class BootstrapperContext
     {
-        public BootstrapperContext(IHostBuilder hostBuilder) 
+        public BootstrapperContext(IHostBuilder hostBuilder, IAssemblyFinder assemblyFinder) 
         {
             HostBuilder = hostBuilder;
+            AssemblyFinder = assemblyFinder;
         }
 
         public IHostBuilder HostBuilder { get; }
+
+        public IAssemblyFinder AssemblyFinder { get; }
     }
 }

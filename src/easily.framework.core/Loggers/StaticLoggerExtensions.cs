@@ -7,7 +7,7 @@ using Serilog;
 using Serilog.Extensions.Logging;
 using MSLogger = Microsoft.Extensions.Logging.ILogger;
 
-namespace easily.framework.core.Serilog
+namespace easily.framework.core.Loggers
 {
     public static class StaticLoggerExtensions
     {
