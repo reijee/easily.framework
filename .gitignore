@@ -5,3 +5,5 @@
 /src/easily.framework.webapi/Logs
 /src/easily.framework.webapi/obj
 /src/easily.framework.core/bin
+/test/easily.framework.core.test/bin/Debug/net8.0
+/test/easily.framework.core.test/obj
