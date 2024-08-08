@@ -1,3 +1,5 @@
+using easily.framework.core.Serilog;
+using easily.framework.core.test.Bootstrappers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace easily.framework.webapi.Controllers

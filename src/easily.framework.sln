@@ -5,7 +5,13 @@ VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.core", "easily.framework.core\easily.framework.core.csproj", "{871B2638-2E69-4E9E-9FE0-005311BC985A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "easily.framework.webapi", "easily.framework.webapi\easily.framework.webapi.csproj", "{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.webapi", "easily.framework.webapi\easily.framework.webapi.csproj", "{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{CFD65635-50F6-4350-AC69-E2354C42D5F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B8B07C50-B186-40D3-AD07-5229D0D2C212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "easily.framework.core.test", "..\test\easily.framework.core.test\easily.framework.core.test.csproj", "{A609A351-3B25-4A18-8949-FA0DC4FBC3C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,18 @@ Global
 		{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A609A351-3B25-4A18-8949-FA0DC4FBC3C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A609A351-3B25-4A18-8949-FA0DC4FBC3C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A609A351-3B25-4A18-8949-FA0DC4FBC3C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A609A351-3B25-4A18-8949-FA0DC4FBC3C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{871B2638-2E69-4E9E-9FE0-005311BC985A} = {B8B07C50-B186-40D3-AD07-5229D0D2C212}
+		{32F2E6BA-D9F2-4715-AE1F-C95E15F585AD} = {B8B07C50-B186-40D3-AD07-5229D0D2C212}
+		{A609A351-3B25-4A18-8949-FA0DC4FBC3C4} = {CFD65635-50F6-4350-AC69-E2354C42D5F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FA02CE7B-F746-4097-AACF-501039C0933B}
