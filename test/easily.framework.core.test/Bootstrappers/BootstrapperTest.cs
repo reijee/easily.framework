@@ -1,5 +1,7 @@
 ﻿using easily.framework.core.Bootstrappers;
+using easily.framework.core.DependencyInjections;
 using easily.framework.core.Loggers;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,6 @@ namespace easily.framework.core.test.Bootstrappers
 {
     public class BootstrapperTest : IBootstrapper
     {
-
         private static ILogger _logger => StaticLoggerExtensions.CreateLogger<BootstrapperTest>();
 
         public int SortNum => 100;
