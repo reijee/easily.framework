@@ -1,4 +1,7 @@
 ﻿using easily.framework.core.Bootstrappers;
+using easily.framework.core.Loggers;
+using easily.framework.core.Reflections;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +15,26 @@ namespace easily.framework.core.DependencyInjections
     /// </summary>
     public class DependencyInjectionBootstrapper : IBootstrapper
     {
+        private static ILogger _logger => StaticLoggerExtensions.CreateLogger<DependencyInjectionBootstrapper>();
+
         public int SortNum => 10;
 
         public bool Enabled => true;
 
-        public Action Register(BootstrapperContext context)
+        public Action Register(BootstrapperContext bootstrapperContext)
         {
-            return () =>
+            bootstrapperContext.HostBuilder.ConfigureServices((context, services) =>
             {
+                DefaultDependencyInjectionRegistrar defaultDependencyInjectionRegistrar = new DefaultDependencyInjectionRegistrar();
 
-            };
+                var assemblies = bootstrapperContext.AssemblyFinder.Find(AssemblyFinderOption.DefaultOption);
+                foreach (var assembly in assemblies)
+                {
+                    _logger.LogInformation($"===Start Dependency Injection：{assembly.FullName}");
+                    defaultDependencyInjectionRegistrar.AddAssembly(services, assembly);
+                }
+            });
+            return ()=> { };
         }
     }
 }

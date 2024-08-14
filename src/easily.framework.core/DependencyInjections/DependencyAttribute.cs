@@ -21,6 +21,11 @@ namespace easily.framework.core.DependencyInjections
         public bool IsReplace { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public bool IsTry {  get; set; }
+
+        /// <summary>
         /// 指定的注入类型
         /// </summary>
         public Type[] RegisterTypes { get; set; } = Type.EmptyTypes;
