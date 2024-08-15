@@ -17,7 +17,7 @@ namespace easily.framework.core.Bootstrappers
         /// </summary>
         /// <param name="hostBuilder"></param>
         /// <returns></returns>
-        public static IHostBuilder AddBootstrapper(this IHostBuilder hostBuilder)
+        public static IHostBuilder UseBootstrapper(this IHostBuilder hostBuilder)
         {
             // 创建 IAssemblyFinder
             IAssemblyFinder assemblyFinder = new AppDomainAssemblyFinder();

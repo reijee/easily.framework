@@ -7,3 +7,5 @@
 /src/easily.framework.core/bin
 /test/easily.framework.core.test/bin/Debug/net8.0
 /test/easily.framework.core.test/obj
+/src/easily.framework.autofac/bin
+/src/easily.framework.autofac/obj

@@ -36,7 +36,7 @@ namespace easily.framework.core.DependencyInjections
             var exposedServices = GetExposedServiceTypes(type, dependencyAttribute);
             foreach(var exposedService in exposedServices)
             {
-                _logger.LogInformation($"==============CreateServiceDescriptor：{type.FullName}，{exposedService.FullName}");
+                _logger.LogInformation($"--> CreateServiceDescriptor：{type.FullName}，{exposedService.FullName}");
                 var descriptor = CreateServiceDescriptor(type, exposedService, lifeTime.Value);
 
                 if (dependencyAttribute?.IsReplace == true)

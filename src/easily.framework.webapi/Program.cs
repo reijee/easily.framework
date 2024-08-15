@@ -1,4 +1,5 @@
 
+using easily.framework.autofac.Extensions;
 using easily.framework.core.Bootstrappers;
 using Serilog;
 using Serilog.Events;
@@ -42,14 +43,16 @@ namespace easily.framework.webapi
                 Log.Information("WebHost Starting...");
                 var builder = WebApplication.CreateBuilder(args);
 
-                // 使用Serilog日志记录器
-                builder.Host.UseSerilog();
-
-                // 添加启动器
-                builder.Host.AddBootstrapper();
+                builder.Host
+                    // 使用Autofac
+                    .UseAutofac()
+                    // 使用Serilog日志记录器
+                    .UseSerilog()
+                    // 添加启动器
+                    .UseBootstrapper();
 
                 // Add services to the container.
-                builder.Services.AddControllers();
+                builder.Services.AddControllers().AddControllersAsServices();
                 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
                 builder.Services.AddEndpointsApiExplorer();
                 builder.Services.AddSwaggerGen();
