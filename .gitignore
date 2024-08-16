@@ -11,3 +11,6 @@
 /src/easily.framework.autofac/obj
 /src/easily.framework.tools/obj
 /src/easily.framework.tools/bin
+/test/easily.framework.webapi/bin
+/test/easily.framework.webapi/Logs
+/test/easily.framework.webapi/obj

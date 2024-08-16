@@ -20,9 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\test\easily.framework.core.test\easily.framework.core.test.csproj" />
-    <ProjectReference Include="..\easily.framework.autofac\easily.framework.autofac.csproj" />
-    <ProjectReference Include="..\easily.framework.core\easily.framework.core.csproj" />
+    <ProjectReference Include="..\..\src\easily.framework.autofac\easily.framework.autofac.csproj" />
+    <ProjectReference Include="..\..\src\easily.framework.core\easily.framework.core.csproj" />
+    <ProjectReference Include="..\easily.framework.core.test\easily.framework.core.test.csproj" />
   </ItemGroup>
 
 </Project>
