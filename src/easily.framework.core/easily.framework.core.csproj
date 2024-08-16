@@ -12,4 +12,8 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\easily.framework.tools\easily.framework.tools.csproj" />
+  </ItemGroup>
+
 </Project>

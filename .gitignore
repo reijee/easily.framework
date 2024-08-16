@@ -9,3 +9,5 @@
 /test/easily.framework.core.test/obj
 /src/easily.framework.autofac/bin
 /src/easily.framework.autofac/obj
+/src/easily.framework.tools/obj
+/src/easily.framework.tools/bin

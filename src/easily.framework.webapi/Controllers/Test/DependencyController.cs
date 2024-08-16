@@ -8,8 +8,9 @@ namespace easily.framework.webapi.Controllers.Test
         private IDependencyInjectionTest _dependencyTest;
         private IDependencyAttributeTest _dependencyAttributeTest;
 
-        public DependencyController(IDependencyInjectionTest dependencyTest, 
-            IDependencyAttributeTest dependencyAttributeTest)
+        public DependencyController(IDependencyInjectionTest dependencyTest,
+            IDependencyAttributeTest dependencyAttributeTest,
+            IServiceProvider serviceProvider)
         {
             _dependencyTest = dependencyTest;
             _dependencyAttributeTest = dependencyAttributeTest;

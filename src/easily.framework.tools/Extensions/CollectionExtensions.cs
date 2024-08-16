@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace easily.framework.core.Extensions
+namespace easily.framework.tools.Extensions
 {
     public static class CollectionExtensions
     {

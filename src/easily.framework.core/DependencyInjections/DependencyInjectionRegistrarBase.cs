@@ -1,5 +1,5 @@
 ﻿using easily.framework.core.Bootstrappers;
-using easily.framework.core.Extensions;
+using easily.framework.tools.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
