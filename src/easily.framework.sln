@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.core.test"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.autofac", "easily.framework.autofac\easily.framework.autofac.csproj", "{D4C6D838-14F0-4C5E-BEC9-FACBA43A5DF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "easily.framework.tools", "easily.framework.tools\easily.framework.tools.csproj", "{0DEEA446-C6EB-478E-A26C-7C2290D8B8D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.tools", "easily.framework.tools\easily.framework.tools.csproj", "{0DEEA446-C6EB-478E-A26C-7C2290D8B8D5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "easily.framework.webapi", "..\test\easily.framework.webapi\easily.framework.webapi.csproj", "{5C8407E5-E5D9-40A1-95CE-767CC0F443CC}"
 EndProject
