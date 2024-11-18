@@ -5,7 +5,7 @@
 /src/easily.framework.webapi/Logs
 /src/easily.framework.webapi/obj
 /src/easily.framework.core/bin
-/test/easily.framework.core.test/bin/Debug/net8.0
+/test/easily.framework.core.test/bin
 /test/easily.framework.core.test/obj
 /src/easily.framework.autofac/bin
 /src/easily.framework.autofac/obj
@@ -14,3 +14,5 @@
 /test/easily.framework.webapi/bin
 /test/easily.framework.webapi/Logs
 /test/easily.framework.webapi/obj
+/src/easily.framework.authorizations/bin
+/src/easily.framework.authorizations/obj
