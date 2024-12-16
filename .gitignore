@@ -18,3 +18,9 @@
 /src/easily.framework.authorizations/obj
 /project/easily.blogs.entities/bin
 /project/easily.blogs.entities/obj
+/project/easily.blogs.service.abstractions/bin
+/project/easily.blogs.service.abstractions/obj
+/project/easily.blogs.services/bin/
+/project/easily.blogs.services/obj
+/project/easily.blogs.httpapi/bin
+/project/easily.blogs.httpapi/obj

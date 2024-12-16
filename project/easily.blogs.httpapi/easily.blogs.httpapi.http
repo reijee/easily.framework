@@ -1,0 +1,6 @@
+@easily.blogs.httpapi_HostAddress = http://localhost:5189
+
+GET {{easily.blogs.httpapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
