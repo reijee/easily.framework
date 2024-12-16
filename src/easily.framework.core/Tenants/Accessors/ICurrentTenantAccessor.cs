@@ -12,6 +12,6 @@ namespace easily.framework.core.Tenants.Accessors
     public interface ICurrentTenantAccessor<T>
     {
         // 当前租户
-        TenantBasicInfo<T>? Current { get; set; }
+        EasilyTenantInfo<T>? Current { get; set; }
     }
 }

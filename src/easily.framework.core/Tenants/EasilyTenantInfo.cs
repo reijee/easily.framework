@@ -10,7 +10,7 @@ namespace easily.framework.core.Tenants
     /// 租户的基本信息
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class TenantBasicInfo<T>
+    public class EasilyTenantInfo<T>
     {
         /// <summary>
         /// 主键ID

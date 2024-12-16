@@ -25,7 +25,7 @@ namespace easily.framework.core.Tenants
         /// <summary>
         /// 是否可用
         /// </summary>
-        public bool IsAvailable => Id != null && Id.Equals(default(T));
+        public bool IsAvailable => Id != null && !Id.Equals(default(T));
 
         /// <summary>
         /// 当前租户ID
@@ -49,7 +49,7 @@ namespace easily.framework.core.Tenants
             var parentTenant = _currentTenantAccessor.Current;
 
             // 切换为新的租户
-            _currentTenantAccessor.Current = new TenantBasicInfo<T>() { Id = id, TenantName = name };
+            _currentTenantAccessor.Current = new EasilyTenantInfo<T>() { Id = id, TenantName = name };
 
             // 当新租户结束（回收）时，还原租户信息
             return new DisposeAction(() =>

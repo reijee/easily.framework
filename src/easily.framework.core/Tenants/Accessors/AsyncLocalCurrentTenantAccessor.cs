@@ -19,20 +19,20 @@ namespace easily.framework.core.Tenants.Accessors
         /// <summary>
         /// AsyncLocal存储
         /// </summary>
-        private readonly AsyncLocal<TenantBasicInfo<T>?> _currentStore;
+        private readonly AsyncLocal<EasilyTenantInfo<T>?> _currentStore;
 
         /// <summary>
         /// 构造方法
         /// </summary>
         private AsyncLocalCurrentTenantAccessor()
         {
-            _currentStore = new AsyncLocal<TenantBasicInfo<T>?>();
+            _currentStore = new AsyncLocal<EasilyTenantInfo<T>?>();
         }
 
         /// <summary>
         /// 当前租户
         /// </summary>
-        public TenantBasicInfo<T>? Current
+        public EasilyTenantInfo<T>? Current
         {
             get => _currentStore.Value;
             set => _currentStore.Value = value;
