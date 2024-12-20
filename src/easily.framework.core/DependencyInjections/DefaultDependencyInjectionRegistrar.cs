@@ -12,8 +12,6 @@ namespace easily.framework.core.DependencyInjections
 {
     public class DefaultDependencyInjectionRegistrar : DependencyInjectionRegistrarBase
     {
-        private static ILogger _logger => StaticLoggerExtensions.CreateLogger<DefaultDependencyInjectionRegistrar>();
-
         /// <summary>
         /// 注册指定类型
         /// </summary>
@@ -34,10 +32,18 @@ namespace easily.framework.core.DependencyInjections
             }
 
             var exposedServices = GetExposedServiceTypes(type, dependencyAttribute);
-            foreach(var exposedService in exposedServices)
+            if(exposedServices == null || !exposedServices.Any())
             {
-                _logger.LogInformation($"--> CreateServiceDescriptor：{type.FullName}，{exposedService.FullName}");
+                return;
+            }
+
+            foreach (var exposedService in exposedServices)
+            {
                 var descriptor = CreateServiceDescriptor(type, exposedService, lifeTime.Value);
+                if(descriptor == null)
+                {
+                    continue;
+                }
 
                 if (dependencyAttribute?.IsReplace == true)
                 {

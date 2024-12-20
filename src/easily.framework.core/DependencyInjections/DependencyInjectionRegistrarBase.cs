@@ -96,14 +96,17 @@ namespace easily.framework.core.DependencyInjections
         {
             List<Type> exposedServices = dependencyAttribute?.RegisterTypes?.ToList() ?? new List<Type>();
 
-            // 类型的接口
-            List<Type> skipInterfaces = [typeof(ITransientDependency), typeof(ISingletonDependency), typeof(IScopedDependency)];
-            foreach (var interfaceType in type.GetTypeInfo().GetInterfaces())
+            // 如果特性中没有指定注入的类型，则从实现的接口中查找
+            if (!exposedServices.Any())
             {
-                if(skipInterfaces.Contains(interfaceType)) continue;
-                exposedServices.AddIfNotContains(interfaceType);
+                List<Type> skipInterfaces = [typeof(ITransientDependency), typeof(ISingletonDependency), typeof(IScopedDependency)];
+                foreach (var interfaceType in type.GetTypeInfo().GetInterfaces())
+                {
+                    if (skipInterfaces.Contains(interfaceType)) continue;
+                    exposedServices.AddIfNotContains(interfaceType);
+                }
             }
-
+            
             // 添加本身
             exposedServices.AddIfNotContains(type);
 
@@ -119,8 +122,19 @@ namespace easily.framework.core.DependencyInjections
         /// <returns></returns>
         protected virtual ServiceDescriptor CreateServiceDescriptor(Type implementationType,  Type exposingServiceType, ServiceLifetime lifeTime)
         {
+            // 处理泛型类型
+            Type serviceType = exposingServiceType;
+            if (implementationType.IsGenericTypeDefinition && exposingServiceType.IsGenericType)
+            {
+                var genericArguments = exposingServiceType.GetGenericArguments();
+                if (genericArguments.Length > 0)
+                {
+                    serviceType = exposingServiceType.GetGenericTypeDefinition();
+                }
+            }
+
             return ServiceDescriptor.Describe(
-                exposingServiceType,
+                serviceType,
                 implementationType,
                 lifeTime
             );

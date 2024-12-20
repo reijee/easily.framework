@@ -1,4 +1,5 @@
-﻿using System;
+﻿using easily.framework.core.DependencyInjections;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace easily.framework.core.Tenants.Accessors
     /// <summary>
     /// 当前租户存储存器（AsyncLocal存储）
     /// </summary>
-    public class AsyncLocalCurrentTenantAccessor<T>: ICurrentTenantAccessor<T>
+    public class AsyncLocalCurrentTenantAccessor<T>: ICurrentTenantAccessor<T>, ISingletonDependency
     {
         /// <summary>
         /// 静态对象，用于注入，当然也可以直接访问
@@ -24,7 +25,7 @@ namespace easily.framework.core.Tenants.Accessors
         /// <summary>
         /// 构造方法
         /// </summary>
-        private AsyncLocalCurrentTenantAccessor()
+        public AsyncLocalCurrentTenantAccessor()
         {
             _currentStore = new AsyncLocal<EasilyTenantInfo<T>?>();
         }

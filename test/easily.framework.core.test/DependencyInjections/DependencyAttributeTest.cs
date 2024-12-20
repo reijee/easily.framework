@@ -1,15 +1,10 @@
 ﻿using easily.framework.core.DependencyInjections;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace easily.framework.core.test.DependencyInjections
 {
-    [Dependency(ServiceLifetime.Transient, IsTry = true, IsReplace = true, RegisterTypes = [typeof(IDependencyAttributeTest)])]
+    [Dependency(ServiceLifetime.Transient, IsTry = true, IsReplace = true)]
     internal class DependencyAttributeTest : IDependencyAttributeTest
     {
         private ILogger<DependencyAttributeTest> _logger;

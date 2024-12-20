@@ -286,14 +286,16 @@ namespace easily.framework.autofac.Autofacs
                         builder
                             .RegisterGeneric(implementationType)
                             .ConfigureServiceType(descriptor)
-                            .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons);
+                            .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons)
+                            .PropertiesAutowired(); // 启用属性注入
                     }
                     else
                     {
                         builder
                             .RegisterType(implementationType)
                             .ConfigureServiceType(descriptor)
-                            .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons);
+                            .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons)
+                            .PropertiesAutowired(); // 启用属性注入
                     }
 
                     continue;
@@ -316,6 +318,7 @@ namespace easily.framework.autofac.Autofacs
                     })
                     .ConfigureServiceType(descriptor)
                     .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons)
+                    .PropertiesAutowired()  // 启用属性注入
                     .CreateRegistration();
 
                     builder.RegisterComponent(registration);
@@ -331,6 +334,7 @@ namespace easily.framework.autofac.Autofacs
                     })
                         .ConfigureServiceType(descriptor)
                         .ConfigureLifecycle(descriptor.Lifetime, lifetimeScopeTagForSingletons)
+                        .PropertiesAutowired()  // 启用属性注入
                         .CreateRegistration();
 
                     builder.RegisterComponent(registration);
@@ -342,6 +346,7 @@ namespace easily.framework.autofac.Autofacs
                     .RegisterInstance(descriptor.NormalizedImplementationInstance()!)
                     .ConfigureServiceType(descriptor)
                     .ConfigureLifecycle(descriptor.Lifetime, null)
+                    .PropertiesAutowired()  // 启用属性注入
                     .ExternallyOwned();
             }
         }
