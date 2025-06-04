@@ -5,8 +5,8 @@ namespace easily.framework.webapi.Controllers.Test
 {
     public class AutofacController : TestControllerBase
     {
-        public IDependencyInjectionTest InjectionTest { get; set; }
-        public IDependencyAttributeTest AttributeTest { get; set; }
+        public required IDependencyInjectionTest InjectionTest { get; set; }
+        public required IDependencyAttributeTest AttributeTest { get; set; }
 
         [HttpGet]
         public async Task<bool> Test()

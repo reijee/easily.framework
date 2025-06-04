@@ -1,6 +1,7 @@
 
 using easily.framework.autofac.Extensions;
 using easily.framework.core.Bootstrappers;
+using easily.framework.tools.StaticServices;
 using Serilog;
 using Serilog.Events;
 
@@ -66,6 +67,8 @@ namespace easily.framework.webapi
                     app.UseSwagger();
                     app.UseSwaggerUI();
                 }
+
+                app.Services.UserStaticServiceAccessor();
 
                 app.UseHttpsRedirection();
 
